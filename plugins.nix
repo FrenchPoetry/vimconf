@@ -173,5 +173,8 @@ with inputs; {
   tokyonight-nvim = plugin "tokyonight-nvim" tokyonight-nvim-src;
   spacecamp-vim = plugin "spacecamp-vim" spacecamp-vim-src;
   airline-vim = plugin "airline-vim" airline-vim-src;
+  nerdtree-vim = plugin "nerdtree-vim" nerdtree-vim-src;
+  tagbar-vim = plugin "tagbar-vim" tagbar-src;
+  colors150-vim = plugin "colors150-vim" colors150-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 }

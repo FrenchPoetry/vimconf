@@ -11,6 +11,9 @@ with dsl; {
     tokyonight-nvim
     spacecamp-vim
     airline-vim
+    nerdtree-vim
+    tagbar-vim
+    colors150-vim
     # statusline-action-hints
 
     # jump to character on line
@@ -19,11 +22,64 @@ with dsl; {
 
   # autocmd ColorScheme * highlight QuickScopePrimary guifg='#ff0000' guibg='#0000ff' ctermfg='196'
   # autocmd ColorScheme * highlight QuickScopeSecondary guifg='#880000' guibg='#000088' gui=underline ctermfg='196'
+  # set smartindent
   vimscript = ''
     set background=dark
     colorscheme spacecamp
+    filetype plugin indent on
+    syntax on
+
+    noremap <F4> :NERDTreeToggle <cr>
+    noremap <F1> :mksession! .vim.session <cr>
+    noremap <F2> :source .vim.session <cr>
+    noremap <F3> :! rm .vim.session <cr>
+    noremap <F8> :TagbarToggle <cr>
+    set listchars=tab:>-
+    set fo+=t
+    set t_Co=256
+    set nocursorline
+    set title
+    set bs=2
+    set noautoindent
+    set ruler
+    set shortmess=aoOTI
+    set nocompatible
+    set showmode
+    set splitbelow
+    set showcmd
+    set showmatch
+    set tabstop=2
+    set shiftwidth=2
+    set expandtab
+    set cinoptions=(0,m1,:1
+    set formatoptions=tcqro2
+    set laststatus=2
+    set softtabstop=2
+    set sidescroll=5
+    set scrolloff=4
+    set hlsearch
+    set incsearch
+    set ignorecase
+    set smartcase
+    set foldmethod=marker
+    set ttyfast
+    set history=10000
+    set hidden
+    set number
+    set complete=.,w,b,u,t
+    set completeopt=longest,menuone,preview
+    set noswapfile
+    set foldlevelstart=0
+    set wildmenu
+    set wildmode=list:longest,full
+    set wrap
+    set statusline=%{getcwd()}\/\%f%=%-14.(%l,%c%V%)\ %P
+    set autoread
+    set conceallevel=2
+    set concealcursor=vin
 
     let g:airline#extensions#tabline#enabled = 1
+
   '';
      # autocmd ColorScheme * highlight Comment guifg='#ff0000'
 

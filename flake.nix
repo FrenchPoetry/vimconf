@@ -176,11 +176,11 @@
       flake = false;
     };
 
-    # copilot-vim-src = {
-    #   url = "github:github/copilot.vim";
-    #   flake = false;
-    # };
-    #
+    copilot-vim-src = {
+       url = "github:github/copilot.vim";
+       flake = false;
+    };
+
     codeium-nvim = {
       url = "github:DieracDelta/codeium.nvim/jr/actually_works";
       flake = true;
@@ -316,6 +316,20 @@
       flake = false;
     };
 
+    nerdtree-vim-src = {
+      url = "github:preservim/nerdtree";
+      flake = false;
+    };
+
+    tagbar-src = {
+      url = "github:preservim/tagbar";
+      flake = false;
+    };
+
+    colors150-src = {
+      url = "github:luckydev/150colors";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:
