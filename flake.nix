@@ -1,8 +1,26 @@
 {
-  description = "uint8_t vim config";
+  description = "uint8_t* VIM config";
 
   # Input source for our derivation
   inputs = {
+    rustaceanvim-src = {
+      url = "github:mrcjkb/rustaceanvim";
+      flake = false;
+    };
+     gitlinker-nvim-src = {
+      url = "github:linrongbin16/gitlinker.nvim";
+      flake = false;
+    };
+
+    ferris-nvim-src = {
+      url = "github:vxpm/ferris.nvim";
+      flake = false;
+    };
+
+    magma-nvim-src = {
+      url = "github:dccsillag/magma-nvim";
+      flake = false;
+    };
     vscoq = {
       url = "github:coq-community/vscoq";
       flake = true;
@@ -109,10 +127,6 @@
       url = "github:nvim-telescope/telescope-ui-select.nvim";
       flake = false;
     };
-    rust-tools-src = {
-      url = "github:simrat39/rust-tools.nvim";
-      flake = false;
-    };
     fidget-src = {
       url = "github:j-hui/fidget.nvim/legacy";
       flake = false;
@@ -176,11 +190,11 @@
       flake = false;
     };
 
-    copilot-vim-src = {
-       url = "github:github/copilot.vim";
-       flake = false;
-    };
-
+    # copilot-vim-src = {
+    #   url = "github:github/copilot.vim";
+    #   flake = false;
+    # };
+    #
     codeium-nvim = {
       url = "github:DieracDelta/codeium.nvim/jr/actually_works";
       flake = true;
@@ -252,7 +266,7 @@
     #   flake = false;
     # };
     neovim = {
-      url = "github:neovim/neovim?dir=contrib";
+      url = "github:neovim/neovim?dir=contrib&rev=e32af31ee89c6a251e8d551a044c7876b9514579";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -346,7 +360,7 @@
                 codeium-nvim = codeium-nvim.packages.${system}.vimPlugins.codeium-nvim;
                 codeium-lsp = codeium-nvim.packages.${system}.codeium-lsp;
                 coq-lsp = coq-lsp.packages.${system}.default;
-                nvim = neovim.packages.${system}.neovim;
+                nvim-master = neovim.packages.${system}.neovim;
                 vscoqlsp = vscoq.packages.${system}.vscoq-language-server;
                 # sg = sg-nvim-src.packages.${prev.system}.default.overrideAttrs (oldAttrs: {
                 #     buildInputs = oldAttrs.buildInputs ++ (if prev.stdenv.isDarwin then [ prev.darwin.apple_sdk.frameworks.Security ] else []);
@@ -362,6 +376,7 @@
             #  # Build with NodeJS
               withNodeJs = true;
               withPython3 = true;
+              package = pkgs.nvim-master;
                   # --suffix PATH : ${pkgs.lib.makeBinPath [ pkgs.sg ]} --suffix LUA_CPATH : ';${pkgs.sg}/lib/libsg_nvim.dylib;${pkgs.sg}/lib/libsg_nvim.so;'
               extraMakeWrapperArgs = ''
                   --suffix PATH : ${pkgs.lib.makeBinPath [ pkgs.coq-lsp pkgs.vscoqlsp ]}
@@ -374,18 +389,19 @@
                 ./modules/misc.nix
                 ./modules/treesitter.nix
                 ./modules/git.nix
-                ./modules/wilder.nix
+                ./modules/jupyter.nix
+                # ./modules/wilder.nix
                 #
                 #
-                ./modules/agda.nix
+                # ./modules/agda.nix
                 ./modules/autopairs.nix
-                ./modules/trailblazer.nix
+                # ./modules/trailblazer.nix
                 ./modules/github.nix
                 ./modules/coq.nix
-
+                # ./modules/tokyonight.nix
                 # ./modules/sg.nix
 
-                ./modules/leap.nix
+                # ./modules/leap.nix
                 # TODO uncomment when
                 # https://github.com/Olical/conjure/issues/401
                 # this will be quite useful

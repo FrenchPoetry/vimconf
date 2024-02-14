@@ -3,10 +3,8 @@ with dsl;
 let
   cmd = command: desc: [ "<cmd>${command}<cr>" desc ];
 in
-{
+with dsl; {
   plugins = with pkgs; [
-    # for getting github links
-    nvim-github-linker
     # command discover
     which-key
     # for sane tab detection
@@ -15,7 +13,10 @@ in
 
   set.autoread = true;
 
+
   vim.g = {
+    diagnostics_visible = true;
+    inlay_hints_visible = true;
     # perl bad
     loaded_perl_provider = 0;
     mapleader = " ";
@@ -87,7 +88,8 @@ in
       s = cmd "lua vim.lsp.buf.signature_help()" "Get function signature";
       u = ["<cmd>UndotreeToggle<CR>" "Trigger UndoTree"];
 
-      "yg" = [ "<cmd>lua (function() vim.api.nvim_command('redir @+') vim.api.nvim_exec('GithubLink', true) vim.api.nvim_command('redir END') local output = vim.fn.getreg('+') local modifiedOutput = output:gsub(\"^\n?git@\", \"\") if modifiedOutput == \"\" then print(\"No output from GithubLink command\") else vim.fn.setreg(\"+\", modifiedOutput) print(\"Output has been copied to the clipboard\") end end)() <CR>" "Link to github"];
+      "yg" = [ "<cmd> GitLink<CR>" "Link to git url"];
+      "yb" = [ "<cmd> GitLink blame<CR>" "Link to git blame"];
       "k" = [ "<cmd>lua vim.lsp.buf.type_definition()<CR>" "Get type definition" ];
       "rn" = [ "<cmd>lua vim.lsp.buf.rename()<CR>" "Rename function/variable" ];
       "ca" = [ "<cmd>lua vim.lsp.buf.code_action()<CR>" "Perform code action" ];
@@ -142,20 +144,36 @@ in
       "hn" = [ "<cmd>Gitsigns next_hunk<CR>" "next hunk" ];
       "hp" = [ "<cmd>Gitsigns prev_hunk<CR>" "prev hunk" ];
 
+      "rl" = [
+        "<cmd> lua require('ferris.methods.view_memory_layout')()<CR>"
+        "View memory layout"
+      ];
+      "rhi" = [
+        "<cmd> lua require('ferris.methods.view_hir')()<CR>"
+        "View MIR"
+      ];
+      "rmi" = [
+        "<cmd> lua require('ferris.methods.view_mir')()<CR>"
+        "View MIR"
+      ];
+      "rb" = [
+        "<cmd> lua require('ferris.methods.rebuild_macros')()<CR>"
+        "Rebuild macros"
+      ];
       "rm" = [
-        "<cmd>lua require'rust-tools.expand_macro'.expand_macro()<CR>"
+        "<cmd>lua vim.cmd.RustLsp('expandMacro')<CR>"
         "Expand macro"
       ];
       "rh" = [
-        "cmd lua require('rust-tools.inlay_hints').toggle_inlay_hints()<CR>"
+        "cmd lua toggle_inlay_hints()<CR>"
         "toggle inlay type hints"
       ];
       "rpm" = [
-        "cmd lua require'rust-tools.parent_module'.parent_module()<CR>"
+        "cmd lua vimd.cmd.RustLsp('parentModule')<CR>"
         "go to parent module"
       ];
       "rJ" = [
-        "cmd lua require'rust-tools.join_lines'.join_lines()<CR>"
+        "cmd lua vim.cmd.RustLsp('joinLines')<CR>"
         "join lines rust"
       ];
       "cu" = [ "lua require('crates').update_crate()" "update a crate" ];
@@ -237,6 +255,52 @@ in
   use.guess-indent.setup = callWith { };
 
 
+  lua = ''
+    vim.g.inlay_hints_visible = true
+    function toggle_inlay_hints()
+      if vim.g.inlay_hints_visible then
+        vim.g.inlay_hints_visible = false
+        vim.lsp.inlay_hint(bufnr, false)
+      else
+        if client.server_capabilities.inlayHintProvider then
+          vim.g.inlay_hints_visible = true
+          vim.lsp.inlay_hint(bufnr, true)
+        else
+          print("no inlay hints available")
+        end
+      end
+    end
+    vim.g.rustaceanvim = {
+      client = { server_capabilities = { inlayHintProvider = true } },
+      tools = {
+        autoSetHints = true,
+        runnables = { use_telescope = true },
+        inlay_hints = {
+
+          only_current_line = false,
+          only_current_line_autocmd = "CursorMoved",
+
+          show_parameter_hints = true,
+
+          parameter_hints_prefix = "<- ",
+          other_hints_prefix = "=> ",
+
+          max_len_align = false,
+
+          max_len_align_padding = 1,
+
+          right_align = false,
+
+          right_align_padding = 7,
+          highlight = "DiagnosticSignWarn",
+        },
+      },
+      dap = {
+        adapter = require('rustaceanvim.config').get_codelldb_adapter('/nix/store/cvr0sbpfm9fsscpyrxg4025dq1wvask5-vscode-extension-vadimcn-vscode-lldb-1.8.1/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb', '/nix/store/cvr0sbpfm9fsscpyrxg4025dq1wvask5-vscode-extension-vadimcn-vscode-lldb-1.8.1/share/vscode/extensions/vadimcn.vscode-lldb/lldb/lib/liblldb.dylib'),
+      },
+    }
+
+  '';
 
 
 

@@ -99,7 +99,6 @@ with inputs; {
   fidget = plugin "fidget" fidget-src;
   neogen = plugin "neogen" neogen-src;
   parinfer-rust-nvim = plugin "parinfer-rust" prev.parinfer-rust;
-  rust-tools = plugin "rust-tools" rust-tools-src;
   telescope-ui-select = plugin "telescope-ui-select" telescope-ui-select-src;
   which-key = plugin "which-key" which-key-src;
   guess-indent = plugin "guess-indent" guess-indent-src;
@@ -161,14 +160,20 @@ with inputs; {
 
   nvim-matchup = plugin "nvim-matchup" nvim-matchup-src;
 
-  nvim-github-linker = plugin "nvim-github-linker" nvim-github-linker-src;
-
   coq-lsp-nvim = plugin "coq-lsp-nvim" coq-lsp-nvim-src;
   typst-vim = plugin "typst-vim" typst-vim-src;
 
   vim-circom-syntax = plugin "vim-circom-syntax" vim-circom-syntax-src;
 
   vscoq-nvim = plugin "vscoq-nvim" vscoq-nvim-src;
+
+  magma-nvim = plugin "magma-nvim" magma-nvim-src;
+
+  rustaceanvim = plugin "rustaceanvim" rustaceanvim-src;
+
+  ferris-nvim = plugin "ferris-nvim" ferris-nvim-src;
+
+  gitlinker-nvim = plugin "gitlinker-nvim" gitlinker-nvim-src;
 
   tokyonight-nvim = plugin "tokyonight-nvim" tokyonight-nvim-src;
   spacecamp-vim = plugin "spacecamp-vim" spacecamp-vim-src;
@@ -177,4 +182,5 @@ with inputs; {
   tagbar-vim = plugin "tagbar-vim" tagbar-src;
   colors150-vim = plugin "colors150-vim" colors150-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
+
 }
