@@ -1,6 +1,7 @@
 # What is this?
 
 This should be a fork of github.com/DieracDelta/vimconfig, because it is highly based on it.
+
 My personal vim config, assembled with `Nix`, and using vim2nix.
 
 # Usage
