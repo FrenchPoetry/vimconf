@@ -12,37 +12,34 @@ with inputs; {
   #   buildInputs = oldAttrs.buildInputs ++ (if prev.stdenv.isDarwin then [ prev.darwin.apple_sdk.frameworks.Security ] else []);
   # });
 
-  # codeium-lsp = with prev;
-  #   stdenv.mkDerivation {
-  #     pname = "codeium-lsp";
-  #     version = "v1.2.36";
-  #
-  #
-  #     src =
-  #     if prev.stdenv.isDarwin then
-  #     fetchurl {
-  #       url = "https://github.com/Exafunction/codeium/releases/download/language-server-v1.2.36/language_server_macos_arm";
-  #       sha256 = "sha256-9rEd/87gjNMbgOh2luP68Kd6+20zuA3O83Ma42rmd5Y=";
-  #     }
-  #     else
-  #     fetchurl {
-  #       url = "https://github.com/Exafunction/codeium/releases/download/language-server-v1.2.36/language_server_linux_x64";
-  #       sha256 = "sha256-YzQV5w/p0X+KHUU6sL3Djc2En/3pex5Iht7Er7U4UHY=";
-  #     };
-  #
-  #     nativeBuildInputs = [
-  #       stdenv.cc.cc
-  #     ] ++ (if !prev.stdenv.isDarwin then [autoPatchelfHook] else []);
-  #
-  #     installPhase = ''
-  #       mkdir -p $out/bin
-  #       install -m755 $src $out/bin/codeium-lsp
-  #     '';
-  #
-  #     phases = ["installPhase" "fixupPhase"];
-  #
-  #   }
-  # ;
+  #codeium-lsp = with prev;
+  #  stdenv.mkDerivation {
+  #    pname = "codeium-lsp";
+  #    version = "v1.8.9";
+
+
+  #    src =
+  #    if prev.stdenv.isDarwin then
+  #    fetchurl {
+  #      url = "https://github.com/Exafunction/codeium/releases/download/language-server-v1.8.9/language_server_macos_arm";
+  #      sha256 = "sha256-9rEd/87gjNMbgOh2luP68Kd6+20zuA3O83Ma42rmd5Y=";
+  #    }
+  #    else
+  #    fetchurl {
+  #      url = "https://github.com/Exafunction/codeium/releases/download/language-server-v1.8.9/language_server_linux_x64";
+  #      sha256 = "sha256-YzQV5w/p0X+KHUU6sL3Djc2En/3pex5Iht7Er7U4UHY=";
+  #    };
+
+   #   nativeBuildInputs = [
+   #     stdenv.cc.cc
+   #   ] ++ (if !prev.stdenv.isDarwin then [autoPatchelfHook] else []);
+#
+#      installPhase = ''
+#        mkdir -p $out/bin
+#        install -m755 $src $out/bin/codeium-lsp
+#      '';
+#      phases = ["installPhase" "fixupPhase"];
+#    };
 
   terraform-ls = with prev;
     (buildGoModule rec {
@@ -96,9 +93,12 @@ with inputs; {
   conceal = plugin "conceal" conceal-src;
   dracula = plugin "dracula" dracula-nvim;
   gruvbox-nvim = plugin "gruvbox-nvim" gruvbox-nvim-src;
+  tokyonight-nvim = plugin "tokyonight-nvim" tokyonight-nvim-src;
+  kanagawa-nvim = plugin "kanagawa-nvim" kanagawa-nvim-src;
   fidget = plugin "fidget" fidget-src;
   neogen = plugin "neogen" neogen-src;
   parinfer-rust-nvim = plugin "parinfer-rust" prev.parinfer-rust;
+  rust-tools = plugin "rust-tools" rust-tools-src;
   telescope-ui-select = plugin "telescope-ui-select" telescope-ui-select-src;
   which-key = plugin "which-key" which-key-src;
   guess-indent = plugin "guess-indent" guess-indent-src;
@@ -175,12 +175,21 @@ with inputs; {
 
   gitlinker-nvim = plugin "gitlinker-nvim" gitlinker-nvim-src;
 
-  tokyonight-nvim = plugin "tokyonight-nvim" tokyonight-nvim-src;
   spacecamp-vim = plugin "spacecamp-vim" spacecamp-vim-src;
-  airline-vim = plugin "airline-vim" airline-vim-src;
+  # airline-vim = plugin "airline-vim" airline-vim-src;
   nerdtree-vim = plugin "nerdtree-vim" nerdtree-vim-src;
   tagbar-vim = plugin "tagbar-vim" tagbar-src;
   colors150-vim = plugin "colors150-vim" colors150-src;
+  vim-markdown = plugin "vim-markdown" vim-markdown-src;
+  presence-nvim = plugin "presence-nvim" presence-nvim-src;
+  morkula-vim = plugin "morkula-vim" morkula-vim-src;
+  godbolt-nvim = plugin "godbolt-nvim" godbolt-nvim-src;
+  rose-pine-nvim = plugin "rose-pine-nvim" rose-pine-nvim-src;
+  leetcode-nvim = plugin "leetcode-nvim" leetcode-nvim-src;
+  obsidian-nvim = plugin "obsidian-nvim" obsidian-nvim-src;
+  nvim-tree = plugin "nvim-tree" nvim-tree-src;
+  nvim-nio = plugin "nvim-nio" nvim-nio-src;
+  startup-nvim = plugin "startup-nvim" startup-nvim-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

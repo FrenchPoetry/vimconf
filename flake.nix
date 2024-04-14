@@ -1,5 +1,5 @@
 {
-  description = "uint8_t* VIM config";
+  description = "My Personal Vim config";
 
   # Input source for our derivation
   inputs = {
@@ -103,6 +103,14 @@
       url = "github:ellisonleao/gruvbox.nvim";
       flake = false;
     };
+    tokyonight-nvim-src = {
+      url = "github:folke/tokyonight.nvim";
+      flake = false;
+    };
+    kanagawa-nvim-src = {
+      url = "github:rebelot/kanagawa.nvim";
+      flake = false;
+    };
     nvim-cmp = {
       url = "github:hrsh7th/nvim-cmp";
       flake = false;
@@ -125,6 +133,10 @@
     };
     telescope-ui-select-src = {
       url = "github:nvim-telescope/telescope-ui-select.nvim";
+      flake = false;
+    };
+    rust-tools-src = {
+      url = "github:simrat39/rust-tools.nvim";
       flake = false;
     };
     fidget-src = {
@@ -315,20 +327,15 @@
       flake = false;
     };
 
-    tokyonight-nvim-src = {
-      url = "github:folke/tokyonight.nvim";
-      flake = false;
-    };
-
     spacecamp-vim-src = {
       url = "github:jaredgorski/spacecamp";
       flake = false;
     };
 
-    airline-vim-src = {
-      url = "github:vim-airline/vim-airline";
-      flake = false;
-    };
+    # airline-vim-src = {
+    #   url = "github:vim-airline/vim-airline";
+    #   flake = false;
+    # };
 
     nerdtree-vim-src = {
       url = "github:preservim/nerdtree";
@@ -343,6 +350,55 @@
     colors150-src = {
       url = "github:luckydev/150colors";
       flake = false;
+    };
+
+    vim-markdown-src = {
+      url = "github:preservim/vim-markdown";
+      flake = false;
+    };
+
+    presence-nvim-src = {
+      url = "github:andweeb/presence.nvim";
+      flake = false;
+    };
+
+    morkula-vim-src = {
+      url = "github:markjay4k/morkula_theme";
+      flake = false;
+    };
+    godbolt-nvim-src = {
+      url = "github:p00f/godbolt.nvim";
+      flake = false;
+    };
+
+    rose-pine-nvim-src = {
+      url = "github:rose-pine/neovim";
+      flake = false;
+    };
+
+    leetcode-nvim-src = {
+      url = "github:kawre/leetcode.nvim";
+      flake = false;
+    };
+
+    obsidian-nvim-src = {
+      url = "github:epwalsh/obsidian.nvim";
+      flake = false;
+    };
+
+    nvim-tree-src = {
+      url = "github:nvim-tree/nvim-tree.lua";
+      flake = false;
+    };
+
+    nvim-nio-src = {
+        url = "github:nvim-neotest/nvim-nio";
+        flake = false;
+    };
+
+    startup-nvim-src = {
+        url = "github:startup-nvim/startup.nvim";
+        flake = false;
     };
   };
 
@@ -361,7 +417,8 @@
                 codeium-lsp = codeium-nvim.packages.${system}.codeium-lsp;
                 coq-lsp = coq-lsp.packages.${system}.default;
                 nvim-master = neovim.packages.${system}.neovim;
-                vscoqlsp = vscoq.packages.${system}.vscoq-language-server;
+                # vscoqlsp = vscoq.packages.${system}.vscoq-language-server;
+                vscoqlsp = vscoq.packages.${system}.vscoq-language-server-coq-8-18;
                 # sg = sg-nvim-src.packages.${prev.system}.default.overrideAttrs (oldAttrs: {
                 #     buildInputs = oldAttrs.buildInputs ++ (if prev.stdenv.isDarwin then [ prev.darwin.apple_sdk.frameworks.Security ] else []);
                 #     });
@@ -390,16 +447,16 @@
                 ./modules/treesitter.nix
                 ./modules/git.nix
                 ./modules/jupyter.nix
-                # ./modules/wilder.nix
+                ./modules/wilder.nix
                 #
                 #
-                # ./modules/agda.nix
+                ./modules/agda.nix
                 ./modules/autopairs.nix
-                # ./modules/trailblazer.nix
+                ./modules/trailblazer.nix
                 ./modules/github.nix
                 ./modules/coq.nix
-                # ./modules/tokyonight.nix
-                # ./modules/sg.nix
+
+                ./modules/sg.nix
 
                 # ./modules/leap.nix
                 # TODO uncomment when

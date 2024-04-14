@@ -133,7 +133,7 @@ with dsl; {
         [ "<cmd>lua require('neogit').open()<CR>" "Open neogit (magit clone)" ];
       "gb" = [ "<cmd>BlamerToggle<CR>" "Toggle git blame" ];
       "gc" = [ "<cmd>Neogen<CR>" "generate comments boilerplate" ];
-
+      "gd" = [ "<cmd>GodboltCompiler telescope<CR>" "Godbolt Compiler" ];
       "l" = [ "<cmd>Telescope resume<CR>" "last telescope query" ];
 
       "gf" = [

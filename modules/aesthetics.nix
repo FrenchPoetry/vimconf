@@ -9,11 +9,16 @@ with dsl; {
     node-type-nvim
     vim-circom-syntax
     tokyonight-nvim
+    kanagawa-nvim
     spacecamp-vim
     # airline-vim
-    nerdtree-vim
     tagbar-vim
     colors150-vim
+    presence-nvim
+    nerdtree-vim
+    nvim-tree
+    rose-pine-nvim
+    startup-nvim
     # statusline-action-hints
 
     # jump to character on line
@@ -22,64 +27,13 @@ with dsl; {
 
   # autocmd ColorScheme * highlight QuickScopePrimary guifg='#ff0000' guibg='#0000ff' ctermfg='196'
   # autocmd ColorScheme * highlight QuickScopeSecondary guifg='#880000' guibg='#000088' gui=underline ctermfg='196'
-  # set smartindent
   vimscript = ''
-    set background=dark
-    colorscheme tokyonight-night
-    filetype plugin indent on
-    syntax on
-
-    noremap <F4> :NERDTreeToggle <cr>
+    colorscheme rose-pine
+    noremap <F4> :NvimTreeOpen <cr>
     noremap <F1> :mksession! .vim.session <cr>
     noremap <F2> :source .vim.session <cr>
     noremap <F3> :! rm .vim.session <cr>
     noremap <F8> :TagbarToggle <cr>
-    set listchars=tab:>-
-    set fo+=t
-    set t_Co=256
-    set nocursorline
-    set title
-    set bs=2
-    set noautoindent
-    set ruler
-    set shortmess=aoOTI
-    set nocompatible
-    set showmode
-    set splitbelow
-    set showcmd
-    set showmatch
-    set tabstop=2
-    set shiftwidth=2
-    set expandtab
-    set cinoptions=(0,m1,:1
-    set formatoptions=tcqro2
-    set laststatus=2
-    set softtabstop=2
-    set sidescroll=5
-    set scrolloff=4
-    set hlsearch
-    set incsearch
-    set ignorecase
-    set smartcase
-    set foldmethod=marker
-    set ttyfast
-    set history=10000
-    set hidden
-    set number
-    set complete=.,w,b,u,t
-    set completeopt=longest,menuone,preview
-    set noswapfile
-    set foldlevelstart=0
-    set wildmenu
-    set wildmode=list:longest,full
-    set wrap
-    set statusline=%{getcwd()}\/\%f%=%-14.(%l,%c%V%)\ %P
-    set autoread
-    set conceallevel=2
-    set concealcursor=vin
-    let g:tagbar_ctags_bin='/nix/store/m59b6lwf5hhg17y3jnm3sj1dg389rmsi-universal-ctags-6.0.0/bin/ctags'
-    let g:airline#extensions#tabline#enabled = 1
-
   '';
      # autocmd ColorScheme * highlight Comment guifg='#ff0000'
 
@@ -88,10 +42,94 @@ with dsl; {
   setup.node-type = {};
 
   lua = ''
+    require("startup").setup({theme = "evil"})
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+    vim.opt.termguicolors = true
+    require("nvim-tree").setup({
+      sort = {
+        sorter = "case_sensitive",
+      },
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = true,
+      },
+    })
+    require("rose-pine").setup({
+        variant = "auto", -- auto, main, moon, or dawn
+        dark_variant = "main", -- main, moon, or dawn
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
+
+        enable = {
+            terminal = true,
+            legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+            migrations = true, -- Handle deprecated options automatically
+        },
+
+        styles = {
+            bold = true,
+            italic = true,
+            transparency = false,
+        },
+
+        groups = {
+            border = "muted",
+            link = "iris",
+            panel = "surface",
+
+            error = "love",
+            hint = "iris",
+            info = "foam",
+            note = "pine",
+            todo = "rose",
+            warn = "gold",
+
+            git_add = "foam",
+            git_change = "rose",
+            git_delete = "love",
+            git_dirty = "rose",
+            git_ignore = "muted",
+            git_merge = "iris",
+            git_rename = "pine",
+            git_stage = "iris",
+            git_text = "rose",
+            git_untracked = "subtle",
+
+            h1 = "iris",
+            h2 = "foam",
+            h3 = "rose",
+            h4 = "gold",
+            h5 = "pine",
+            h6 = "foam",
+        },
+
+        highlight_groups = {
+            -- Comment = { fg = "foam" },
+            -- VertSplit = { fg = "muted", bg = "muted" },
+        },
+
+        before_highlight = function(group, highlight, palette)
+            -- Disable all undercurls
+            -- if highlight.undercurl then
+            --     highlight.undercurl = false
+            -- end
+            --
+            -- Change palette colour
+            -- if highlight.fg == palette.pine then
+            --     highlight.fg = palette.foam
+            -- end
+        end,
+    })
     require("tokyonight").setup({
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+      style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
       light_style = "day", -- The theme is used when the background is set to light
       transparent = false, -- Enable this to disable setting the background color
       terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
@@ -121,9 +159,63 @@ with dsl; {
       --- function will be called with a Highlights and ColorScheme table
       ---@param highlights Highlights
       ---@param colors ColorScheme
-      on_highlights = function(highlights, colors) end,
-
+      on_highlights = function(hl, c)
+      local prompt = "#2d3149"
+      hl.TelescopeNormal = {
+        bg = c.bg_dark,
+        fg = c.fg_dark,
+      }
+      hl.TelescopeBorder = {
+        bg = c.bg_dark,
+        fg = c.bg_dark,
+      }
+      hl.TelescopePromptNormal = {
+        bg = prompt,
+      }
+      hl.TelescopePromptBorder = {
+        bg = prompt,
+        fg = prompt,
+      }
+      hl.TelescopePromptTitle = {
+        bg = prompt,
+        fg = prompt,
+      }
+      hl.TelescopePreviewTitle = {
+        bg = c.bg_dark,
+        fg = c.bg_dark,
+      }
+      hl.TelescopeResultsTitle = {
+        bg = c.bg_dark,
+        fg = c.bg_dark,
+      }
+    end,
     })
+
+    require('kanagawa').setup({
+      compile = false,             -- enable compiling the colorscheme
+      undercurl = true,            -- enable undercurls
+      commentStyle = { italic = true },
+      functionStyle = {},
+      keywordStyle = { italic = true},
+      statementStyle = { bold = true },
+      typeStyle = {},
+      transparent = false,         -- do not set background color
+      dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+      colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      },
+      overrides = function(colors) -- add/modify highlights
+          return {}
+      end,
+      theme = "wave",              -- Load "wave" theme when 'background' option is not set
+      background = {               -- map the value of 'background' option to a theme
+          dark = "dragon",           -- try "dragon" !
+          light = "lotus"
+        },
+    })
+
   '';
   # setup.statusline-action-hints = {
   #     definition_identifier = "gd";
