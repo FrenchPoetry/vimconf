@@ -190,6 +190,7 @@ with inputs; {
   nvim-tree = plugin "nvim-tree" nvim-tree-src;
   nvim-nio = plugin "nvim-nio" nvim-nio-src;
   startup-nvim = plugin "startup-nvim" startup-nvim-src;
+  asciiart-nvim = plugin "asciiart-nvim" asciiart-nvim-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

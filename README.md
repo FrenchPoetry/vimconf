@@ -5,7 +5,7 @@ My personal vim config, assembled with `Nix`, and using vim2nix.
 # Usage
 
 ```
-nix run github:DieracDelta/vimconfig
+nix run github:algoatson/vimconf
 ```
 
 # What's enabled

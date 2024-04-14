@@ -397,7 +397,12 @@
     };
 
     startup-nvim-src = {
-        url = "github:startup-nvim/startup.nvim";
+        url = "github:algoatson/startup.nvim";
+        flake = false;
+    };
+
+    asciiart-nvim-src = {
+        url = "github:doctorfree/asciiart.nvim";
         flake = false;
     };
   };
