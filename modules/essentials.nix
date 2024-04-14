@@ -129,6 +129,8 @@ with dsl; {
       "wj" = [ "<cmd>wincmd j<cr>" "Move window down" ];
       "wk" = [ "<cmd>wincmd k<cr>" "Move window up" ];
       "wh" = [ "<cmd>wincmd h<cr>" "Move window left" ];
+      "we" = [ "<cmd>wincmd w<cr>" "Focus main window" ];
+      "wf" = [ "<cmd>NvimTreeFocus<cr>" "Focus Nvim Tree" ];
       "gs" =
         [ "<cmd>lua require('neogit').open()<CR>" "Open neogit (magit clone)" ];
       "gb" = [ "<cmd>BlamerToggle<CR>" "Toggle git blame" ];
@@ -244,7 +246,6 @@ with dsl; {
       "ti" = [ "<Cmd>lua require(\"trailblazer\").set_trail_mark_select_mode()<CR>" "Trailblazer: select mode"];
       "tz" = [ "<Cmd>TrailBlazerSaveSession<CR>" "Trailblazer: save"];
       "tZ" = [ "<Cmd>TrailBlazerLoadSession<CR>" "Trailblazer: load"];
-
     };
   };
   use.which-key.setup = callWith { };

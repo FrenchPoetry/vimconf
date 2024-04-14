@@ -20,6 +20,10 @@ with dsl; {
     rose-pine-nvim
     startup-nvim
     asciiart-nvim
+    nvim-gdb
+    glow-nvim
+    auto-session-nvim
+    focus-nvim
     # statusline-action-hints
 
     # jump to character on line
@@ -28,8 +32,8 @@ with dsl; {
 
   # autocmd ColorScheme * highlight QuickScopePrimary guifg='#ff0000' guibg='#0000ff' ctermfg='196'
   # autocmd ColorScheme * highlight QuickScopeSecondary guifg='#880000' guibg='#000088' gui=underline ctermfg='196'
+  # noremap <F4> :NvimTreeOpen <cr>
   vimscript = ''
-    noremap <F4> :NvimTreeOpen <cr>
     noremap <F1> :mksession! .vim.session <cr>
     noremap <F2> :source .vim.session <cr>
     noremap <F3> :! rm .vim.session <cr>
@@ -109,6 +113,40 @@ with dsl; {
 
     vim.cmd("colorscheme tokyonight-night")
 
+    vim.g.tree_open = 0
+    function ToggleNvimTree()
+      if vim.o.modifiable == true then
+        vim.g.tree_open = 1
+        vim.cmd('NvimTreeOpen')
+      elseif vim.g.tree_open == 1 then
+        vim.cmd("NvimTreeClose")
+        vim.g.tree_open = 0
+      end
+    end
+
+    vim.api.nvim_set_keymap('n', '<F4>', ':lua ToggleNvimTree()<CR>', { noremap = true, silent = true })
+
+    require('glow').setup({
+      style = "dark",
+      width = 120,
+    })
+
+    require("auto-session").setup({
+      log_level = "error",
+      auto_session_enable_last_session = true,
+      cwd_change_handling = {
+        restore_upcoming_session = true, -- already the default, no need to specify like this, only here as an example
+        pre_cwd_changed_hook = nil, -- already the default, no need to specify like this, only here as an example
+        post_cwd_changed_hook = function() -- example refreshing the lualine status line _after_ the cwd changes
+          require("lualine").refresh() -- refresh lualine so the new session name is displayed in the status bar
+        end,
+      },
+    })
+
+    vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+    require("focus").setup({enable = true})
+
     require('asciiart').setup {
       render = {
         min_padding = 5,
@@ -121,7 +159,7 @@ with dsl; {
         update_on_nvim_resize = true,
       },
     }
-    require("startup").setup({theme = "evil"})
+    require("startup").setup({theme = "dragon0"})
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
     vim.opt.termguicolors = true
@@ -279,6 +317,7 @@ with dsl; {
 
   setup.lualine = {
     options = {
+      theme = "tokyonight";
       component_separators = {
         left = "";
         right = "";

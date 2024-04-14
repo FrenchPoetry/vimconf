@@ -405,6 +405,26 @@
         url = "github:doctorfree/asciiart.nvim";
         flake = false;
     };
+
+    nvim-gdb-src = {
+      url = "github:sakhnik/nvim-gdb";
+      flake = false;
+    };
+
+    glow-nvim-src = {
+      url = "github:ellisonleao/glow.nvim";
+      flake = false;
+    };
+
+    auto-session-nvim-src = {
+      url = "github:rmagatti/auto-session";
+      flake = false;
+    };
+
+    focus-nvim-src = {
+      url = "github:nvim-focus/focus.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:

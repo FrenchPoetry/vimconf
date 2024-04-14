@@ -191,6 +191,10 @@ with inputs; {
   nvim-nio = plugin "nvim-nio" nvim-nio-src;
   startup-nvim = plugin "startup-nvim" startup-nvim-src;
   asciiart-nvim = plugin "asciiart-nvim" asciiart-nvim-src;
+  nvim-gdb = plugin "nvim-gdb" nvim-gdb-src;
+  glow-nvim = plugin "glow-nvim" glow-nvim-src;
+  auto-session-nvim = plugin "auto-session-nvim" auto-session-nvim-src;
+  focus-nvim = plugin "focus-nvim" focus-nvim-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }
