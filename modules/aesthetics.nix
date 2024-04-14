@@ -28,7 +28,7 @@ with dsl; {
   # autocmd ColorScheme * highlight QuickScopePrimary guifg='#ff0000' guibg='#0000ff' ctermfg='196'
   # autocmd ColorScheme * highlight QuickScopeSecondary guifg='#880000' guibg='#000088' gui=underline ctermfg='196'
   vimscript = ''
-    colorscheme rose-pine
+    colorscheme tokyonight-night
     noremap <F4> :NvimTreeOpen <cr>
     noremap <F1> :mksession! .vim.session <cr>
     noremap <F2> :source .vim.session <cr>
@@ -129,8 +129,8 @@ with dsl; {
     require("tokyonight").setup({
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-      light_style = "day", -- The theme is used when the background is set to light
+      style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+      light_style = "night", -- The theme is used when the background is set to light
       transparent = false, -- Enable this to disable setting the background color
       terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
       styles = {
