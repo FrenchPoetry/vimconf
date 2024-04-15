@@ -348,6 +348,7 @@ setupCodeium
 
 
   lua = ''
+    require("leetcode").setup()
     -- default godbolt configuration
     require("godbolt").setup({
       cpp = { compiler = "g122", options = {} },

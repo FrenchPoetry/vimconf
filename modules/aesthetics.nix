@@ -26,6 +26,7 @@ with dsl; {
     focus-nvim
     competitest-nvim
     cphelper-nvim
+    obsidian-nvim
     # statusline-action-hints
 
     # jump to character on line
@@ -280,6 +281,15 @@ with dsl; {
       open_received_problems = true,
       open_received_contests = true,
       replace_received_testcases = false,
+    })
+
+    require('obsidian').setup({
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/.obsidian/Obsidian",
+        },
+      },
     })
 
     require('asciiart').setup({
