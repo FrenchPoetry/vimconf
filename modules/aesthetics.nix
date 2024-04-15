@@ -27,6 +27,7 @@ with dsl; {
     competitest-nvim
     cphelper-nvim
     obsidian-nvim
+    notify-nvim
     # statusline-action-hints
 
     # jump to character on line

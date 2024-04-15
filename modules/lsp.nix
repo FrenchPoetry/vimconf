@@ -53,7 +53,8 @@ setupCodeium
     leetcode-nvim
     # for lean support
     # vimPlugins.lean-nvim
-
+    guihua-nvim
+    navigator-nvim
     # lsp_lines
     copilot-lua
     copilot-cmp
@@ -348,6 +349,12 @@ setupCodeium
 
 
   lua = ''
+    require("guihua").setup()
+    require("navigator").setup({
+      icons = {
+        icons = true,
+      },
+    })
     require("leetcode").setup()
     -- default godbolt configuration
     require("godbolt").setup({

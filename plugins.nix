@@ -197,6 +197,9 @@ with inputs; {
   focus-nvim = plugin "focus-nvim" focus-nvim-src;
   competitest-nvim = plugin "competitest-nvim" competitest-nvim-src;
   cphelper-nvim = plugin "cphelper-nvim" cphelper-nvim-src;
-  # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
+  navigator-nvim = plugin "navigator-nvim" navigator-nvim-src;
+  guihua-nvim = plugin "guihua-nvim" guihua-nvim-src;
+  notify-nvim = plugin "notify-nvim" notify-nvim-src;
+# statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

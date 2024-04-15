@@ -435,6 +435,21 @@
       url = "github:p00f/cphelper.nvim";
       flake = false;
     };
+
+    navigator-nvim-src = {
+      url = "github:ray-x/navigator.lua";
+      flake = false;
+    };
+
+    guihua-nvim-src = {
+      url = "github:ray-x/guihua.lua";
+      flake = false;
+    };
+
+    notify-nvim-src = {
+      url = "github:rcarriga/nvim-notify";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:
