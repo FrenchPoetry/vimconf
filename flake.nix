@@ -425,6 +425,16 @@
       url = "github:nvim-focus/focus.nvim";
       flake = false;
     };
+
+    competitest-nvim-src = {
+      url = "github:xeluxee/competitest.nvim";
+      flake = false;
+    };
+
+    cphelper-nvim-src = {
+      url = "github:p00f/cphelper.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:

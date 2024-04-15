@@ -195,6 +195,8 @@ with inputs; {
   glow-nvim = plugin "glow-nvim" glow-nvim-src;
   auto-session-nvim = plugin "auto-session-nvim" auto-session-nvim-src;
   focus-nvim = plugin "focus-nvim" focus-nvim-src;
+  competitest-nvim = plugin "competitest-nvim" competitest-nvim-src;
+  cphelper-nvim = plugin "cphelper-nvim" cphelper-nvim-src;
   # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

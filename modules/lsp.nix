@@ -143,38 +143,38 @@ setupCodeium
 
   # setup.lsp_lines = { };
 
-  setup.rust-tools = {
-    client.server_capabilities.semanticTokensProvider = "nil";
-    server = {
-      # settings = { "[\"rust-analyzer\"]" = { cargo.features = rawLua "os.getenv(\"NVIM_RUST_ENABLED_FEATURE_FLAGS\") and { os.getenv(\"NVIM_RUST_ENABLED_FEATURE_FLAGS\") } or \"all\"" ;
-      settings = { "[\"rust-analyzer\"]" = { cargo.features = rawLua "loadfile(\".nvim/example.env.lua\") and { loadfile(\".nvim/example.env.lua\")() } or \"all\"" ;
-      };
-      };
-    };
-    tools = {
-      autoSetHints = true;
-      runnables = { use_telescope = true; };
-      inlay_hints = {
+  # setup.rust-tools = {
+  #   client.server_capabilities.semanticTokensProvider = "nil";
+  #   server = {
+     # settings = { "[\"rust-analyzer\"]" = { cargo.features = rawLua "os.getenv(\"NVIM_RUST_ENABLED_FEATURE_FLAGS\") and { os.getenv(\"NVIM_RUST_ENABLED_FEATURE_FLAGS\") } or \"all\"" ;
+  #     settings = { "[\"rust-analyzer\"]" = { cargo.features = rawLua "loadfile(\".nvim/example.env.lua\") and { loadfile(\".nvim/example.env.lua\")() } or \"all\"" ;
+  #     };
+  #     };
+  #   };
+  #   tools = {
+  #     autoSetHints = true;
+  #     runnables = { use_telescope = true; };
+  #     inlay_hints = {
 
-        only_current_line = false;
-        only_current_line_autocmd = "CursorMoved";
+  #       only_current_line = false;
+  #       only_current_line_autocmd = "CursorMoved";
 
-        show_parameter_hints = true;
+  #       show_parameter_hints = true;
 
-        parameter_hints_prefix = "<- ";
-        other_hints_prefix = "=> ";
+  #       parameter_hints_prefix = "<- ";
+  #       other_hints_prefix = "=> ";
 
-        max_len_align = false;
+  #       max_len_align = false;
 
-        max_len_align_padding = 1;
+  #       max_len_align_padding = 1;
 
-        right_align = false;
+  #       right_align = false;
 
-        right_align_padding = 7;
-        highlight = "DiagnosticSignWarn";
-      };
-    };
-  };
+  #       right_align_padding = 7;
+  #       highlight = "DiagnosticSignWarn";
+  #     };
+  #   };
+  # };
 
   setup.crates = {
     text = {
@@ -263,13 +263,13 @@ setupCodeium
   #     filetypes = [ "coq" "verilog" ];
   #   };
 
-  use.lspconfig.rust_analyzer.setup = callWith {
+  # use.lspconfig.rust_analyzer.setup = callWith {
   #   # assumed to be provided by the project's nix-shell
-     cmd = [ "rust-analyzer" ];
-     # capabilities = rawLua "require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())";
-     capabilities = rawLua "require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())";
-     settings = { "['rust-analyzer']" = { procMacro = { enable = true; }; }; };
-  };
+  #    cmd = [ "rust-analyzer" ];
+  #   # capabilities = rawLua "require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())";
+  #    capabilities = rawLua "require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())";
+  #    settings = { "['rust-analyzer']" = { procMacro = { enable = true; }; }; };
+  # };
 
   use.lspconfig.clangd.setup =
     callWith { cmd = [ "${pkgs.clang-tools}/bin/clangd" ]; };

@@ -164,6 +164,22 @@
         "type": "github"
       }
     },
+    "competitest-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706007708,
+        "narHash": "sha256-ABxdZ98W5W6K0rz0z/1I5lXzLCBnth6ozUUQ1W1nvpo=",
+        "owner": "xeluxee",
+        "repo": "competitest.nvim",
+        "rev": "c3cb0e2b0916a879c4d3dcb5737e6c046dd0afc5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xeluxee",
+        "repo": "competitest.nvim",
+        "type": "github"
+      }
+    },
     "conceal-src": {
       "flake": false,
       "locked": {
@@ -327,6 +343,22 @@
       "original": {
         "owner": "isovector",
         "repo": "cornelis",
+        "type": "github"
+      }
+    },
+    "cphelper-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685637792,
+        "narHash": "sha256-7vEL8GJ1pOOA/VwNcSskQzjEbegwVkHCm4YXzWAMhsk=",
+        "owner": "p00f",
+        "repo": "cphelper.nvim",
+        "rev": "ab259315496514d58b2021048ef40437ad0f5814",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p00f",
+        "repo": "cphelper.nvim",
         "type": "github"
       }
     },
@@ -1430,6 +1462,7 @@
         "colorizer-src": "colorizer-src",
         "colors150-src": "colors150-src",
         "comment-nvim-src": "comment-nvim-src",
+        "competitest-nvim-src": "competitest-nvim-src",
         "conceal-src": "conceal-src",
         "conjure-src": "conjure-src",
         "copilot-cmp-src": "copilot-cmp-src",
@@ -1437,6 +1470,7 @@
         "coq-lsp": "coq-lsp",
         "coq-lsp-nvim-src": "coq-lsp-nvim-src",
         "cornelis": "cornelis",
+        "cphelper-nvim-src": "cphelper-nvim-src",
         "dracula-nvim": "dracula-nvim",
         "ferris-nvim-src": "ferris-nvim-src",
         "fidget-src": "fidget-src",
