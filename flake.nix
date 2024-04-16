@@ -450,6 +450,26 @@
       url = "github:rcarriga/nvim-notify";
       flake = false;
     };
+
+    project-nvim-src = {
+      url = "github:ahmedkhalf/project.nvim";
+      flake = false;
+    };
+
+    dirbuf-nvim-src = {
+      url = "github:elihunter173/dirbuf.nvim";
+      flake = false;
+    };
+
+    surround-nvim-src = {
+      url = "github:kylechui/nvim-surround";
+      flake = false;
+    };
+
+    fugitive-vim-src = {
+      url = "github:tpope/vim-fugitive";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:

@@ -114,6 +114,10 @@ with dsl; {
       "bb" = [ "<cmd>Telescope buffers<cr>" "Get buffer list" ];
       "fb" = [ "<cmd>Telescope file_browser<cr>" "Get buffer list" ];
       "gg" = [ "<cmd>Telescope live_grep<cr>" "Fzf fuzzy search" ];
+      "gp" = [ "<cmd>Telescope projects<cr>" "Show recent projects" ];
+      "ph" = [ "<cmd>Telescope find_files<cr>" "Find project files" ];
+      "tt" = [ "<cmd>Telescope<cr>" "Open telescope" ];
+      "tk" = [ "<cmd>Telescope keymaps<cr>" "Telescope keymaps"];
       "['<leader>']" = [ "<cmd>Telescope find_files<cr>" "search files" ];
       "n"  = ["<cmd>lua require(\"sg.telescope\").fuzzy_search_results()<CR>" "sourcegraph search"];
 
@@ -139,7 +143,7 @@ with dsl; {
       "l" = [ "<cmd>Telescope resume<CR>" "last telescope query" ];
 
       "gf" = [
-        "<cmd>lua require('telescope.builtins').live_grep {default_text='function'}<CR>"
+        "<cmd>lua require('telescope.builtin').live_grep {default_text='function|fn|func|def'}<CR>"
         "grep for functions only"
       ];
       "hs" = [ "<cmd>Gitsigns preview_hunk<CR>" "preview hunk" ];

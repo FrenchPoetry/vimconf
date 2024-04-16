@@ -200,6 +200,10 @@ with inputs; {
   navigator-nvim = plugin "navigator-nvim" navigator-nvim-src;
   guihua-nvim = plugin "guihua-nvim" guihua-nvim-src;
   notify-nvim = plugin "notify-nvim" notify-nvim-src;
+  project-nvim = plugin "project-nvim" project-nvim-src;
+  dirbuf-nvim = plugin "dirbuf-nvim" dirbuf-nvim-src;
+  surround-nvim = plugin "surround-nvim" surround-nvim-src;
+  fugitive-vim = plugin "fugitive-vim" fugitive-vim-src;
 # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

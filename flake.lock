@@ -362,6 +362,22 @@
         "type": "github"
       }
     },
+    "dirbuf-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661712690,
+        "narHash": "sha256-35pNyVO0Yx+g5nvcFOmi2npb9Bnv83mkOtQJ2eKbSyc=",
+        "owner": "elihunter173",
+        "repo": "dirbuf.nvim",
+        "rev": "ac7ad3c8e61630d15af1f6266441984f54f54fd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elihunter173",
+        "repo": "dirbuf.nvim",
+        "type": "github"
+      }
+    },
     "dracula-nvim": {
       "flake": false,
       "locked": {
@@ -645,6 +661,22 @@
       "original": {
         "owner": "nvim-focus",
         "repo": "focus.nvim",
+        "type": "github"
+      }
+    },
+    "fugitive-vim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712554826,
+        "narHash": "sha256-pmY1EQbupKvsqok9O5omkOWi0BEZ8df7HL0F7ubdY9Q=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "dac8e5c2d85926df92672bf2afb4fc48656d96c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
         "type": "github"
       }
     },
@@ -1482,6 +1514,22 @@
         "type": "github"
       }
     },
+    "project-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680567592,
+        "narHash": "sha256-avV3wMiDbraxW4mqlEsKy0oeewaRj9Q33K8NzWoaptU=",
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "rev": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "type": "github"
+      }
+    },
     "quick-scope-src": {
       "flake": false,
       "locked": {
@@ -1519,12 +1567,14 @@
         "coq-lsp-nvim-src": "coq-lsp-nvim-src",
         "cornelis": "cornelis",
         "cphelper-nvim-src": "cphelper-nvim-src",
+        "dirbuf-nvim-src": "dirbuf-nvim-src",
         "dracula-nvim": "dracula-nvim",
         "ferris-nvim-src": "ferris-nvim-src",
         "fidget-src": "fidget-src",
         "flake-utils": "flake-utils_4",
         "floating-input-src": "floating-input-src",
         "focus-nvim-src": "focus-nvim-src",
+        "fugitive-vim-src": "fugitive-vim-src",
         "gitlinker-nvim-src": "gitlinker-nvim-src",
         "glow-nvim-src": "glow-nvim-src",
         "godbolt-nvim-src": "godbolt-nvim-src",
@@ -1567,6 +1617,7 @@
         "obsidian-nvim-src": "obsidian-nvim-src",
         "plenary-nvim-src": "plenary-nvim-src",
         "presence-nvim-src": "presence-nvim-src",
+        "project-nvim-src": "project-nvim-src",
         "quick-scope-src": "quick-scope-src",
         "rose-pine-nvim-src": "rose-pine-nvim-src",
         "rust-tools-src": "rust-tools-src",
@@ -1574,6 +1625,7 @@
         "significant-nvim-src": "significant-nvim-src",
         "spacecamp-vim-src": "spacecamp-vim-src",
         "startup-nvim-src": "startup-nvim-src",
+        "surround-nvim-src": "surround-nvim-src",
         "tagbar-src": "tagbar-src",
         "telescope-dap-nvim-src": "telescope-dap-nvim-src",
         "telescope-dapzzzz-src": "telescope-dapzzzz-src",
@@ -1710,6 +1762,22 @@
       "original": {
         "owner": "algoatson",
         "repo": "startup.nvim",
+        "type": "github"
+      }
+    },
+    "surround-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712807644,
+        "narHash": "sha256-gXWSCAJhOJKzTFi6QiDqDWPNgBtG5KgyF2t4gposqSY=",
+        "owner": "kylechui",
+        "repo": "nvim-surround",
+        "rev": "a4e30d33add8a9743b4f518b3a788b3c8e5def71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kylechui",
+        "repo": "nvim-surround",
         "type": "github"
       }
     },

@@ -28,6 +28,10 @@ with dsl; {
     cphelper-nvim
     obsidian-nvim
     notify-nvim
+    project-nvim
+    dirbuf-nvim
+    surround-nvim
+    fugitive-vim
     # statusline-action-hints
 
     # jump to character on line
@@ -284,6 +288,41 @@ with dsl; {
       replace_received_testcases = false,
     })
 
+
+
+
+    require('project_nvim').setup()
+    require('telescope').load_extension('projects')
+    require("nvim-tree").setup({
+      sync_root_with_cwd = true,
+      respect_buf_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_root = true
+      },
+      sort = {
+        sorter = "case_sensitive",
+      },
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = true,
+      },
+    })
+
+    require('dirbuf').setup({
+      hash_padding = 2,
+      show_hidden = true,
+      sort_order = "default",
+      write_cmd = "DirbufSync",
+    })
+
+    require('nvim-surround').setup()
+
     require('obsidian').setup({
       workspaces = {
         {
@@ -309,20 +348,6 @@ with dsl; {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
     vim.opt.termguicolors = true
-    require("nvim-tree").setup({
-      sort = {
-        sorter = "case_sensitive",
-      },
-      view = {
-        width = 30,
-      },
-      renderer = {
-        group_empty = true,
-      },
-      filters = {
-        dotfiles = true,
-      },
-    })
     require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
         dark_variant = "main", -- main, moon, or dawn
