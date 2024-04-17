@@ -696,6 +696,8 @@ setupCodeium
     let g:vimtex_complete_close_braces = 1
     let g:vimtex_complete_ignore_case = 1
     let g:vimtex_complete_smart_case = 1
+    let g:vimtex_markdown_enabled = 1
+    let g:vim_markdown_math = 1
 
 
     let g:vsnip_snippet_dir='~/.vsnip/'

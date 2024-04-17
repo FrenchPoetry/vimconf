@@ -1167,11 +1167,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1713201277,
-        "narHash": "sha256-xHxbvpjepaDEc3DxJNMCWOFyBqW7yIANbUU+yWSL9+c=",
+        "lastModified": 1713300151,
+        "narHash": "sha256-+Nrtkuj79/jDNGmKgXHtfZ0VEUlKB9a5t41sifo3rxg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fc69edccf533e2731ab8850c59482907e0d4fc28",
+        "rev": "10eb3b41151e68559bc14ecfad4a304a93d6ad8a",
         "type": "github"
       },
       "original": {
@@ -1437,11 +1437,11 @@
     "nvim-treesitter-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713178916,
-        "narHash": "sha256-r0M5+cI5hVGezmVHVlccmBq87GuyS2lOtQ3wduilNZ0=",
+        "lastModified": 1713249829,
+        "narHash": "sha256-U51zaYZPkx7m37zFiPn/LDy9wHuZqo7cMabD0vTEUWU=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "2a95ff14764af20d32ec1edb27e11c38a84b9478",
+        "rev": "7099c9e5310ec3ef70f99e8c935c061ae9990cdd",
         "type": "github"
       },
       "original": {
@@ -1637,6 +1637,7 @@
         "typst-vim-src": "typst-vim-src",
         "vim-circom-syntax-src": "vim-circom-syntax-src",
         "vim-illuminate-src": "vim-illuminate-src",
+        "vim-lichess-src": "vim-lichess-src",
         "vim-markdown-src": "vim-markdown-src",
         "vscoq": "vscoq",
         "vscoq-nvim-src": "vscoq-nvim-src",
@@ -1752,11 +1753,11 @@
     "startup-nvim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713124670,
-        "narHash": "sha256-rDi/Gpgg5A6fty0FbZcA3Gba5z6xtsR4sGGrBFiXvZ8=",
+        "lastModified": 1713295875,
+        "narHash": "sha256-rNp8PMMt2+ATJdHrcSrnRcOtScKOh4HUPU8aOyvkLGM=",
         "owner": "algoatson",
         "repo": "startup.nvim",
-        "rev": "a1965f6f8a7a89fa5c3ba41be592fa325c80cb59",
+        "rev": "0f7b10ade73290ad3e80ff2cb76750ce2ee632a4",
         "type": "github"
       },
       "original": {
@@ -1937,11 +1938,11 @@
     "telescope-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713022073,
-        "narHash": "sha256-ZktFx77Ukuk1/Qhmf1wUEe0+wODM7f2H+PlXsDDTjcA=",
+        "lastModified": 1713229404,
+        "narHash": "sha256-/4dW4oLN/MnQ6gICNLZkUSr8V4giBINqzo3ev6voarc=",
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
-        "rev": "4d4ade7f2b8f403e8816ca50c05ed16e259b21fb",
+        "rev": "d00d9df48c00d8682c14c2b5da78bda7ef06b939",
         "type": "github"
       },
       "original": {
@@ -2035,11 +2036,11 @@
     "typst-vim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713096154,
-        "narHash": "sha256-/ldFbdorORcxdOF3hqsWV4Gq9f07njcqCdzLZwdnseU=",
+        "lastModified": 1713299899,
+        "narHash": "sha256-jJzaJZtKTzHj+F4WNsygkxI+yYIXTsCqhfe+5Hwy+Hs=",
         "owner": "kaarmu",
         "repo": "typst.vim",
-        "rev": "7f64019341defe894ea3ec2f5d3b4279a245a450",
+        "rev": "2945389186600729446b547c819a1dd766aef969",
         "type": "github"
       },
       "original": {
@@ -2077,6 +2078,22 @@
       "original": {
         "owner": "RRethy",
         "repo": "vim-illuminate",
+        "type": "github"
+      }
+    },
+    "vim-lichess-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675416130,
+        "narHash": "sha256-ph186LBuZ17W1yFTTzYbGIbHeA/LhZm7LluSD31cb9E=",
+        "owner": "luk400",
+        "repo": "vim-lichess",
+        "rev": "1eb2039106121acb25da7a667bfc1aa186ab0ea7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luk400",
+        "repo": "vim-lichess",
         "type": "github"
       }
     },

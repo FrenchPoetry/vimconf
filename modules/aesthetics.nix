@@ -32,6 +32,7 @@ with dsl; {
     dirbuf-nvim
     surround-nvim
     fugitive-vim
+    vim-lichess
     # statusline-action-hints
 
     # jump to character on line
@@ -118,6 +119,16 @@ with dsl; {
       }
     end,
     })
+
+    local path = os.getenv("HOME") .. "/.nvim/lichess_api.txt"
+    local chess_api_file = io.open(path, "r")
+    if chess_api_file then
+      local content = chess_api_file:read("*all")
+      chess_api_file:close()
+      vim.g.lichess_api_token = tostring(content)
+    else
+      vim.api.nvim_err_writeln("Error: Unable to open ~/.nvim/lichess_api.txt file")
+    end
 
     vim.cmd("colorscheme tokyonight-night")
 
@@ -344,7 +355,7 @@ with dsl; {
         update_on_nvim_resize = true,
       },
     })
-    require("startup").setup({theme = "dragon0"})
+    require("startup").setup({theme = "nvim_sharp"})
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
     vim.opt.termguicolors = true

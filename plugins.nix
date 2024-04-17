@@ -204,6 +204,7 @@ with inputs; {
   dirbuf-nvim = plugin "dirbuf-nvim" dirbuf-nvim-src;
   surround-nvim = plugin "surround-nvim" surround-nvim-src;
   fugitive-vim = plugin "fugitive-vim" fugitive-vim-src;
+  vim-lichess = plugin "vim-lichess" vim-lichess-src;
 # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

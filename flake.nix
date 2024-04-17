@@ -470,6 +470,11 @@
       url = "github:tpope/vim-fugitive";
       flake = false;
     };
+
+    vim-lichess-src = {
+      url = "github:luk400/vim-lichess";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:
