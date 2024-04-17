@@ -22,6 +22,7 @@ setupCodeium
     nvim-cmp
     vimPlugins.cmp-vsnip
     cmp-buffer
+    cmp-emoji
     # lsp things
     vimPlugins.lsp_signature-nvim
     vimPlugins.lspkind-nvim
@@ -313,6 +314,7 @@ setupCodeium
       { name = "vsnip"; }
       { name = "buffer"; }
       { name = "crates"; }
+      { name = "emoji"; }
     ];
     snippet.expand =
       rawLua ''

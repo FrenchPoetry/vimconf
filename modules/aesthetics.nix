@@ -33,6 +33,7 @@ with dsl; {
     surround-nvim
     fugitive-vim
     vim-lichess
+    emoji-nvim
     # statusline-action-hints
 
     # jump to character on line
@@ -342,6 +343,8 @@ with dsl; {
         },
       },
     })
+
+    require('emoji').setup()
 
     require('asciiart').setup({
       render = {

@@ -475,6 +475,16 @@
       url = "github:luk400/vim-lichess";
       flake = false;
     };
+
+    emoji-nvim-src = {
+      url = "github:Allaman/emoji.nvim";
+      flake = false;
+    };
+
+    cmp-emoji-src = {
+      url = "github:hrsh7th/cmp-emoji";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:

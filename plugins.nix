@@ -205,6 +205,8 @@ with inputs; {
   surround-nvim = plugin "surround-nvim" surround-nvim-src;
   fugitive-vim = plugin "fugitive-vim" fugitive-vim-src;
   vim-lichess = plugin "vim-lichess" vim-lichess-src;
+  emoji-nvim = plugin "emoji-nvim" emoji-nvim-src;
+  cmp-emoji = plugin "cmp-emoji" cmp-emoji-src;
 # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

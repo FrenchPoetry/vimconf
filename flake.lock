@@ -80,6 +80,22 @@
         "type": "github"
       }
     },
+    "cmp-emoji-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710863470,
+        "narHash": "sha256-Sdgetlwhhc11ufDJH6uaXtbL0EZQFZ2Qgg5yBfG1u7I=",
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
+        "rev": "e8398e2adf512a03bb4e1728ca017ffeac670a9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
+        "type": "github"
+      }
+    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -391,6 +407,22 @@
       "original": {
         "owner": "Mofiqul",
         "repo": "dracula.nvim",
+        "type": "github"
+      }
+    },
+    "emoji-nvim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710068464,
+        "narHash": "sha256-AfzBW3OUhF6qkBDLBF+v86E+KXnYPqi6/kP+ZcZBv7Y=",
+        "owner": "Allaman",
+        "repo": "emoji.nvim",
+        "rev": "604b6ecac1d9765d3dcd0c0647fcc99b5defc16d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Allaman",
+        "repo": "emoji.nvim",
         "type": "github"
       }
     },
@@ -1553,6 +1585,7 @@
         "blamer-nvim-src": "blamer-nvim-src",
         "cmp-buffer": "cmp-buffer",
         "cmp-dap-src": "cmp-dap-src",
+        "cmp-emoji-src": "cmp-emoji-src",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "codeium-nvim": "codeium-nvim",
         "colorizer-src": "colorizer-src",
@@ -1569,6 +1602,7 @@
         "cphelper-nvim-src": "cphelper-nvim-src",
         "dirbuf-nvim-src": "dirbuf-nvim-src",
         "dracula-nvim": "dracula-nvim",
+        "emoji-nvim-src": "emoji-nvim-src",
         "ferris-nvim-src": "ferris-nvim-src",
         "fidget-src": "fidget-src",
         "flake-utils": "flake-utils_4",
