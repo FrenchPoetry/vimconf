@@ -119,6 +119,7 @@ with dsl; {
       "tt" = [ "<cmd>Telescope<cr>" "Open telescope" ];
       "tk" = [ "<cmd>Telescope keymaps<cr>" "Telescope keymaps"];
       "ee" = [ "<cmd>InsertEmoji<cr>" "Telescope Emojis" ];
+      "os" = [ "<cmd>ObsidianQuickSwitch<cr>" "Obsidian Quick Switch" ];
       "['<leader>']" = [ "<cmd>Telescope find_files<cr>" "search files" ];
       "n"  = ["<cmd>lua require(\"sg.telescope\").fuzzy_search_results()<CR>" "sourcegraph search"];
 

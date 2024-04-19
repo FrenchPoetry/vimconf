@@ -207,6 +207,9 @@ with inputs; {
   vim-lichess = plugin "vim-lichess" vim-lichess-src;
   emoji-nvim = plugin "emoji-nvim" emoji-nvim-src;
   cmp-emoji = plugin "cmp-emoji" cmp-emoji-src;
+  cmp-path = plugin "cmp-path" cmp-path-src;
+  cmp-cmdline = plugin "cmp-cmdline" cmp-cmdline-src;
+  cmp-tabnine = plugin "cmp-tabnine" cmp-tabnine-src;
 # statusline-action-hints = plugin "statusline-action-hints" statusline-action-hints-src;
 
 }

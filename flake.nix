@@ -485,6 +485,21 @@
       url = "github:hrsh7th/cmp-emoji";
       flake = false;
     };
+
+    cmp-path-src = {
+      url = "github:hrsh7th/cmp-path";
+      flake = false;
+    };
+
+    cmp-cmdline-src = {
+      url = "github:hrsh7th/cmp-cmdline";
+      flake = false;
+    };
+
+    cmp-tabnine-src = {
+      url = "github:algoatson/cmp-tabnine";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, nix2vim, coq-lsp, neovim, /* sg-nvim-src, */ codeium-nvim, vscoq, ... }:

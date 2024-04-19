@@ -23,11 +23,15 @@ setupCodeium
     vimPlugins.cmp-vsnip
     cmp-buffer
     cmp-emoji
+    cmp-path
+    cmp-cmdline
+    cmp-tabnine
     # lsp things
     vimPlugins.lsp_signature-nvim
     vimPlugins.lspkind-nvim
     lsp-config
     godbolt-nvim
+    notify-nvim
     # utility functions for lsp
     # vimPlugins.plenary-nvim
     plenary-nvim
@@ -308,12 +312,19 @@ setupCodeium
         "require('cmp').mapping.confirm({ behavior = require('cmp').ConfirmBehavior.Replace, select = true, })";
     };
     sources = [
+      { name = "cmp_tabnine"; }
       { name = "copilot"; }
       #{ name = "codeium"; }
       { name = "nvim_lsp"; }
       { name = "vsnip"; }
       { name = "buffer"; }
       { name = "crates"; }
+      #{ name = "cmp-dap"; }
+      { name = "obsidian"; }
+      { name = "obsidian_tags"; }
+      { name = "obsidian_new"; }
+      #{ name = "cmdline"; }
+      { name = "path"; }
       { name = "emoji"; }
     ];
     snippet.expand =
@@ -332,10 +343,71 @@ setupCodeium
       require('lspkind').cmp_format({
         mode = "symbol",
         maxwidth = 50,
+        show_labelDetails = true,
         ellipsis_char = '...',
         --
-        symbol_map = { Suggestion = "", }
-      })
+        symbol_map = {
+          Suggestion = "",
+          Text = "󰉿",
+          Method = "󰆧",
+          Function = "󰊕",
+          Constructor = "",
+          Field = "󰜢",
+          Variable = "󰀫",
+          Class = "󰠱",
+          Interface = "",
+          Module = "",
+          Property = "󰜢",
+          Unit = "󰑭",
+          Value = "󰎠",
+          Enum = "",
+          Keyword = "󰌋",
+          Snippet = "",
+          Color = "🎨",
+          File = "󰈙",
+          Reference = "󰈇",
+          Folder = "󰉋",
+          EnumMember = "",
+          Constant = "󰏿",
+          Struct = "󰙅",
+          Event = "",
+          Operator = "󰆕",
+          TypeParameter = "",
+        },
+
+       before = function(entry, vim_item)
+         local source_mapping = {
+           copilot = "💎",
+           nvim_lsp = "🔮",
+           cmp_tabnine = "⚡",
+           vsnip = "✂️",
+           buffer = "📝",
+           crates = "🦀",
+           obsidian = "🪨",
+           obsidian_tags = "🪨",
+           obsidian_new = "🪨",
+           -- cmdline = "[cmd]",
+           path = "🛤️",
+           emoji = "😄",
+         }
+
+         vim_item.kind = require('lspkind').symbolic(vim_item.kind, {mode = "symbol"})
+         vim_item.menu = source_mapping[entry.source.name]
+         if entry.source.name == "cmp_tabnine" then
+           local detail = (entry.completion_item.labelDetails or {}).detail
+           vim_item.kind = "⚡" -- ""
+           if detail and detail:find('.*%%.*') then
+             vim_item.kind = vim_item.kind .. ' ' .. detail
+           end
+           if (entry.completion_item.data or {}).multiline then
+             vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+           end
+           local maxwidth = 80
+           vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+         end
+         return vim_item
+       end
+    })
     '';
     };
     enabled = rawLua "
@@ -577,7 +649,6 @@ setupCodeium
         },
       }
     end
-
 
 
     require("dap").adapters.nix = {
